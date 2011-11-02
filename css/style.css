@@ -1,0 +1,2254 @@
+@charset "utf-8";
+/*
+=======================================================================
+	General Rules
+=======================================================================
+*/
+* {
+	padding:0px;
+	margin:0px;
+}
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	color:#666;
+	background-image:url(../images/bg.gif);
+}
+a {
+	text-decoration:none;
+	outline:none;
+	color:#666;
+}
+a img {
+	border:none;
+}
+.clear {
+	clear:both;
+}
+.bold {
+	font-weight:bold;
+}
+.under {
+	text-decoration:underline;
+}
+.upper {
+	text-transform:uppercase;
+}
+.italic {
+	font-style:italic;
+}
+.colr {
+	color:#333333 !important;
+}
+.white {
+	color:#fff !important;
+}
+.black {
+	color:#000 !important;
+}
+h1 {
+	font-size: 16px;
+	font-weight: normal;
+}
+h2 {
+	font-size:15px;
+	font-weight:normal;
+}
+h3 {
+	font-size:14px;
+	font-weight:normal;
+}
+h4 {
+	font-size:13px;
+	font-weight:normal;
+}
+.subhead {
+	margin-top:20px;
+	width:100%;
+	float:left;
+}
+h5 {
+	font-size:14px;
+	font-weight:normal;
+}
+h6 {
+	font-size:12px;
+	font-weight:normal;
+}
+p {
+	line-height:18px;
+}
+.left {
+	float:left !important;
+	width:100%;
+}
+.right {
+	float:right !important;
+}
+.header {
+	padding:15px 0px 8px 0px;
+	width:100%;
+	border-bottom:#cccccc solid 1px;
+	margin-bottom:10px;
+	float:left;
+}
+.heading {
+	text-transform:uppercase;
+	float:left;
+}
+input {
+	font-size:11px;
+}
+.itlc {
+	font-style:italic;
+}
+.noback {
+	background-image:none !important;
+}
+.noborder {
+	border:none !important;
+}
+
+/*
+=======================================================================
+	Buttons
+=======================================================================
+*/
+/* Button One */
+a.buttonone {
+	float:left;
+	height:21px;
+	padding:6px 10px 0px 10px;
+	display:inline-block;
+	color:#fff;
+	background-color:#333333;
+}
+/*
+=======================================================================
+	Input Form Rules
+=======================================================================
+*/
+ul.forms {
+	float:left;
+	list-style:none;
+	width:100%;
+}
+ul.forms li{
+	float:left;
+	padding-top:10px;
+}
+ul.forms li.inputfield{
+	width:341px;
+}
+ul.forms li.inputfield input.bar{
+	width:329px;
+	height:24px;
+	padding:0px 5px;
+	line-height:24px;
+	background-image:url(../images/input_bg1.gif);
+	background-repeat:no-repeat;
+	border:#d0d0d0 solid 1px;
+	color:#999999;
+}
+ul.forms li.textsec{
+	width:700px;
+}
+ul.forms li.textsec textarea{
+	width:688px;
+	height:123px;
+	padding:5px;
+	background-image:url(../images/textarea.gif);
+	background-repeat:no-repeat;
+	border:#d0d0d0 solid 1px;
+	color:#999999;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+/*
+=======================================================================
+	Wrapper Section Rules
+=======================================================================
+*/
+#wrapper_sec {
+	width:960px;
+	margin:0px auto;
+}
+/*
+=======================================================================
+	Header Section Rules
+=======================================================================
+*/
+#masthead {
+	width:960px;
+	height:94px;
+	float:left;
+}
+.space {
+	width:960px;
+	float:left;
+	padding-bottom:3px;
+}
+#navigation ul.userwelcome {
+	list-style:none;
+	float:right;
+	padding:10px 10px 0px 0px;
+}
+#navigation ul.userwelcome li{
+	float:left;
+	padding-left:1px;
+}
+#navigation ul.userwelcome li.txt{
+	padding:5px 20px 0px 0px;
+	color:#eee;
+}
+#navigation ul.userwelcome li.txt a {
+	color:#eee;
+}
+/*
+#navigation ul.userwelcome li a.register{
+	height:21px;
+	padding:7px 12px 0px 24px;
+	display:inline-block;
+	background-color:#333333;	
+	background-image:url(../images/register.gif);
+	background-repeat:no-repeat;
+	background-position:5px 7px;
+	color:#FFF;
+}
+*/
+#navigation ul.userwelcome li a.login{
+	height:21px;
+	padding:3px 6px 0px 24px;
+	display:inline-block;
+	background-color:#333333;	
+	background-image:url(../images/login.gif);
+	background-repeat:no-repeat;
+	background-position:5px 0;
+	color:#FFF;
+}
+/*
+=======================================================================
+	Logo Rules
+=======================================================================
+*/
+.logo {
+	float:left;
+	width:305px;
+}
+.logo h6{
+	padding:0px 0px 0px 30px;
+}
+/*
+=======================================================================
+	Search Rules
+=======================================================================
+*/
+.search {
+	float:left;
+	width:400px;
+	height:42px;
+	background-color:#FFF;
+	margin-top:15px;
+}
+.search ul{
+	float:left;
+	list-style:none;
+	padding:5px 0px 0px 0px;
+}
+.search ul li{
+	float:left;
+}
+.search ul li.txt{
+	float:left;
+	width:65px;
+	padding:8px 0px 0px 20px;
+}
+.search ul li input{
+	float:left;
+	width:258px;
+	height:30px;
+	line-height:30px;
+	padding:0px 5px 0px 5px;
+	background-image:url(../images/search_bar.gif);
+	background-repeat:no-repeat;
+	border:#cccccc solid 1px;
+	color:#aaaaaa;
+}
+.search ul li a.go{
+	float:left;
+	width:16px;
+	height:16px;
+	display:inline-block;
+	background-image:url(../images/go.gif);
+	background-repeat:no-repeat;
+	margin:8px 0px 0px 13px;
+}
+/*
+=======================================================================
+	Cart Sections Rules
+=======================================================================
+*/
+.cartsec {
+	float:right;
+	width:239px;
+	height:42px;
+	background-color:#FFF;
+	margin-top:15px;
+}
+.cartsec ul {
+	float:left;
+	list-style:none;
+	height:42px;
+	width:239px;
+}
+.cartsec ul li{
+	float:left;
+}
+.cartsec ul li a {
+	padding:13px 0;
+	height:16px;
+	float: left;
+	width: 100%;
+}
+.cartsec ul li ul li {
+	background:#fff;
+	width:239px;
+	padding:0;
+}
+.cartsec ul li ul li.noitmes {
+	padding-left:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	width:229px;
+}
+.cartsec ul li table tr td {
+	padding:8px 0;
+}
+.cartsec ul li table tr td:first-child {
+	padding-left:10px;
+}
+.cartsec ul li table tr.nopadlft td {
+	padding-left:0;
+	padding-top:0;
+	padding-bottom:0;
+}
+.cartsec ul li table tr.border td {
+	border-bottom:1px solid #666;
+}
+.cartsec ul li a:hover {
+	text-decoration:underline;
+}
+.cartsec ul li a.items{
+	float:left;
+	width:66px;
+	text-align:center;
+}
+.cartsec ul li a.items {
+	color:#999999;
+}
+.cartsec ul li a.price{
+	float:left;
+	width:71px;
+	text-align:center;
+	font-size:12px;
+}
+.cartsec ul li a.price {
+	color:#000;
+}
+.cartsec ul li a.viewcart{
+	float:left;
+}
+.cartsec ul li a.cartbutn{
+	z-index:999 !important;
+	position:absolute;
+	background-image:url(../images/cart_pointer.gif);
+	background-repeat:no-repeat;
+	background-position:90% 50%;
+	width:87px;
+	padding-left:15px;
+	display:inline-block;
+}
+.cartsec ul li .cartcollapse{
+	position:relative;
+	width:239px;
+	margin:-42px 0 0 0;
+	z-index:998;
+}
+.cartcollapse p.txt{
+	padding:10px 10px 0px 10px;
+}
+.cartcollapse p.noitmes{
+	padding:0px 10px 10px 10px;
+}
+.cartcollapse ul{
+	list-style:none;
+	float:left;
+	border-bottom:#999999 solid 1px;
+	font-size:10px;
+	width:100%;
+	padding-top:6px;
+}
+.cartcollapse ul li{
+	float:left;
+}
+.cartcollapse ul li.product{
+	float:left;
+	width:130px;
+	padding-left:13px;
+}
+.cartcollapse ul li.qty{
+	float:left;
+	width:42px;
+	text-align:center;
+}
+.cartcollapse ul li.qty input{
+	width:20px;
+	height:20px;
+	text-align:center;
+	border:#999999 solid 1px;
+}
+.cartcollapse ul li.pricetab{
+	float:left;
+	width:52px;
+	text-align:center;
+}
+.cartcollapse ul li.total{
+	float:left;
+	padding-left:13px;
+}
+.cartcollapse ul li.totalprice{
+	float:right;
+	padding-right:13px;
+}
+.cartcollapse ul.head{
+	padding-bottom:5px;
+}
+.cartcollapse ul.items{
+	padding-bottom:7px;
+}
+.cartcollapse ul.items li.product{
+	padding-top:4px;
+}
+.cartcollapse ul.items li.pricetab{
+	padding-top:4px;
+}
+.cartcollapse ul.noborder{
+	padding-bottom:10px;
+}
+.cartcollapse a.empty{
+	width:108px;
+	height:22px;
+	padding:10px 0px 0px 30px;
+	background-image:url(../images/cart.png);
+	background-repeat:no-repeat;
+	background-position:10px 10px;
+	display:inline-block;
+	background-color:#333333;
+	color:#FFF;
+	float:left;
+}
+.cartcollapse a.checkout{
+	width:70px;
+	height:22px;
+	padding:10px 0px 0px 30px;
+	background-image:url(../images/checkout.png);
+	background-repeat:no-repeat;
+	background-position:10px 10px;
+	display:inline-block;
+	background-color:#333333;
+	color:#FFF;
+	float:right;
+}
+/*
+=======================================================================
+	Share Sections Rules
+=======================================================================
+*/
+.header ul.share {
+	list-style:none;
+	float:right;
+	padding:0px;
+}
+.header ul.share li{
+	float:left;
+	padding-right:3px;
+	font-size:10px;
+	color:#666;
+	text-transform:uppercase;
+}
+.header ul.share li.txt{
+	padding-top:1px;
+	padding-right:5px;
+}
+/*
+=======================================================================
+	Bread Crumb - Categories Section Rules
+=======================================================================
+*/
+#crumb_cat {
+	width:960px;
+	height:35px;
+	background-image:url(../images/grey_bg.gif);
+	background-repeat:repeat-x;
+	background-position:bottom;
+	background-color:#f4f4f4;
+	float:left;
+}
+/*
+=======================================================================
+	Latest News Section Rules
+=======================================================================
+*/
+.latestnews {
+	float:left;
+	width:830px;
+	height:27px;
+	padding:7px 0px 0px 40px;
+	background-image:url(../images/news.gif);
+	background-repeat:no-repeat;
+	background-position:10px 8px;
+}
+.latestnews p{
+	float:left;
+	padding-right:10px;
+}
+/*
+=======================================================================
+	Bread Crumb Rules
+=======================================================================
+*/
+.crumb {
+	float:left;
+	width:830px;
+	height:24px;
+	padding:10px 0px 0px 40px;
+	background-image:url(../images/crumb_arow.gif);
+	background-repeat:no-repeat;
+	background-position:15px 15px;
+}
+.crumb ul{
+	float:left;
+	list-style:none;
+}
+.crumb ul li{
+	float:left;
+}
+.crumb ul li a{
+	float:left;
+	background-image:url(../images/crumb_sep.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding:0px 10px 0px 5px;
+}
+.crumb ul li.last a{
+	background-image:none;
+}
+.crumb ul li a:hover{
+	color:#000;
+	text-decoration:underline;
+}
+/*
+=======================================================================
+	Content Section Rules
+=======================================================================
+*/
+#contentsec {
+	width:940px;
+	padding:10px;
+	float:left;
+	background-color:#FFF;
+}
+/*
+=======================================================================
+	Listing Section Rules
+=======================================================================
+*/
+.listing {
+	float:left;
+	width:100%;
+}
+.listing ul{
+	float:left;
+	width:100%;
+	list-style:none;
+	padding:10px 0px;
+}
+.listing ul li{
+	float:left;
+	width:155px;
+	padding:22px 19px 23px 21px;
+	border-right:#f4f4f4 solid 1px;
+	border-bottom:#f4f4f4 solid 1px;
+	border-top:#f4f4f4 solid 1px;
+}
+.listing ul li.first{
+	padding-left:0px;
+}
+.listing ul li.last{
+	padding-right:0px;
+	border-right:none;
+	margin-right:0px;
+}
+.listing ul li a.thumb{
+	float:left;
+	width:149px;
+	height:149px;
+	border:#e8e8e8 solid 3px;
+}
+.listing ul li a.thumb:hover{
+	border:#333333 solid 3px;
+}
+.listing ul li .detail_small{
+	padding:8px 0px 0px 0px;
+}
+.listing ul li a.title{
+	display:inline-block;
+	padding-bottom:4px;
+}
+.listing ul li p.oldprice{
+	padding:0px 0px 0px 20px;
+	margin:0px 0px 0px 0px;
+	background-image:url(../images/price_tag.gif);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	float:left;
+	color:#f00000;
+	text-decoration:line-through;
+}
+.listing ul li p.newprice{
+	float:right;
+}
+.listing ul li a.addtocart{
+	width:130px;
+	height:20px;
+	margin-top:5px;
+	padding:6px 0px 0px 25px;
+	background-color:#333333;
+	background-image:url(../images/plus.gif);
+	background-position:10px 9px;
+	background-repeat:no-repeat;
+	display:inline-block;
+	color:#FFF;
+	text-transform:uppercase;
+	font-size:10px;
+}
+.listing ul li .detail_big{
+	display:none;
+}
+.listing ul.thumb_view{
+	float:left;
+	width:100%;
+	list-style:none;
+	padding:10px 0px;
+}
+.listing ul.thumb_view .detail_small{
+	display:none;
+}
+.listing ul.thumb_view .detail_big{
+	display:block;
+	width:295px;
+	float:right;
+	padding:0px 10px 0px 10px;
+}
+.listing ul.thumb_view .detail_big h4{
+	padding:0px 0px 6px 0px;
+}
+.listing ul.thumb_view .detail_big p.newprice{
+	padding:0px;
+}
+.listing ul.thumb_view .detail_big p.txt{
+	padding:0px 0px 2px 0px;
+	height:61px;
+}
+.listing ul.thumb_view .detail_big p.txt a{
+	color: #0000CC;
+}
+.listing ul.thumb_view .detail_big a.addtocart{
+	margin:12px 0px 0px 0px;
+}
+.listing ul.thumb_view li{
+	float:left;
+	width:470px;
+	height:155px;
+	list-style:none;
+	padding:0px 0px 40px 0px;
+	margin:0px;
+	border:none;
+}
+.listing ul.thumb_view li a.thumb{
+	float:left;
+}
+.listing ul li .hot{
+	width:66px;
+	height:65px;
+	display:inline-block;
+	background-image:url(../images/hotitem.png);
+	background-repeat:no-repeat;
+	position:absolute;
+	margin:-3px 0px 0px -3px;
+}
+.listing ul li .new{
+	width:64px;
+	height:63px;
+	display:inline-block;
+	background-image:url(../images/newitem.png);
+	background-repeat:no-repeat;
+	position:absolute;
+	margin:-3px 0px 0px -3px;
+}
+/*
+=======================================================================
+	Column 1 Rules
+=======================================================================
+*/
+.col1 {
+	width:732px;
+	padding-right:20px;
+	float:left;
+	border-right:1px solid #f4f4f4;
+}
+/*
+=======================================================================
+	Shopping Cart Rules
+=======================================================================
+*/
+.shoppingcart {
+	width:700px;
+	float:left;
+}
+.shoppingcart.wide {
+	width:900px;
+}
+.shoppingcart ul.head{
+	width:729px;
+	float:left;
+	list-style:none;
+	padding:20px 0px 0px 0px;
+	margin-bottom:7px;
+}
+.shoppingcart.wide ul.head {
+	width:859px;
+	margin:0 30px;
+}
+.shoppingcart ul.head li{
+	float:left;
+}
+.shoppingcart ul.head li.items{
+	width:67px;
+	padding-left:15px;
+}
+.shoppingcart ul.head li.desc{
+	width:229px;
+	padding-left:11px;
+}
+.shoppingcart.wide ul.head li.desc{
+	width:349px;
+	padding-left:11px;
+}
+.shoppingcart ul.head li.qty{
+	width:96px;
+	text-align:center;
+}
+.shoppingcart ul.head li.itemprice{
+	width:121px;
+	text-align:center;
+}
+.shoppingcart.wide ul.head li.itemprice{
+	width:141px;
+	text-align:center;
+}
+.shoppingcart ul.head li.total{
+	width:110px;
+	text-align:center;
+}
+.shoppingcart ul.head li.remove{
+	width:60px;
+}
+.shoppingcart ul.cartitems{
+	width:729px;
+	height:50px;
+	float:left;
+	list-style:none;
+	padding:5px 0px 5px 0px;
+	background-image:url(../images/cart_bg_light.gif);
+	background-repeat:repeat-x;
+	margin-bottom:3px;
+}
+.shoppingcart.wide ul.cartitems {
+	width:859px;
+	margin:0 30px;
+}
+.shoppingcart ul.grey{
+	background-image:url(../images/cart_bg.gif);
+	background-repeat:repeat-x;
+}
+.shoppingcart ul.cartitems li{
+	float:left;
+}
+.shoppingcart ul.cartitems li.items{
+	width:67px;
+	padding:0px 0px 0px 15px;
+}
+.shoppingcart ul.cartitems li.desc{
+	width:229px;
+	padding:9px 0px 0px 11px;
+}
+.shoppingcart.wide ul.cartitems li.desc{
+	width:349px;
+	padding:9px 0px 0px 11px;
+}
+.shoppingcart ul.cartitems li.qty{
+	width:96px;
+	text-align:center;
+	padding-top:14px;
+}
+.shoppingcart ul.cartitems li.qty input{
+	width:38px;
+	height:18px;
+	text-align:center;
+	background-color:#FFF;
+	border:#b3b3b3 solid 1px;
+	color:#666666;
+}
+.shoppingcart ul.cartitems li.itemprice{
+	width:121px;
+	text-align:center;
+	padding-top:17px;
+}
+.shoppingcart.wide ul.cartitems li.itemprice{
+	width:141px;
+	text-align:center;
+	padding-top:17px;
+}
+.shoppingcart ul.cartitems li.itemprice.discounted span,
+.cartbuttons li.figr.discounted span {
+	text-decoration:line-through;
+	color:#f00000;
+}
+.shoppingcart ul.cartitems li.total{
+	width:110px;
+	text-align:center;
+	padding-top:17px;
+}
+.shoppingcart ul.cartitems li.remove{
+	width:60px;
+	text-align:center;
+	padding-top:13px;
+}
+.shoppingcart ul.cartitems li.remove a{
+	width:23px;
+	height:23px;
+	display:inline-block;
+	background-image:url(../images/cart_remove.png);
+	background-repeat:no-repeat;
+}
+.shoppingcart ul.cartitems li.remove a:hover {
+	background-image:url(../images/cart_remove_hover.png);
+	background-repeat:no-repeat;
+}
+.shoppingcart.wide .cartbuttons {
+	width:847px;
+	height:auto;
+	float:left;
+}
+.cartbuttons{
+	width:729px;
+	height:61px;
+	background-image:url(../images/cartbuttons_bg.gif);
+	background-repeat:no-repeat;
+	margin-top:20px;
+}
+.cartbuttons a.continueshop{
+	height:20px;
+	padding:5px 15px 0px 35px;
+	background-image:url(../images/checkout.png);
+	background-repeat:no-repeat;
+	background-position:10px 5px;
+	display:inline-block;
+	background-color:#333333;
+	color:#FFF;
+	margin:10px 2px 0px 0px;
+}
+.cartbuttons a.updatecar{
+	height:20px;
+	padding:5px 15px 0px 35px;
+	background-image:url(../images/cart.png);
+	background-repeat:no-repeat;
+	background-position:10px 5px;
+	display:inline-block;
+	background-color:#333333;
+	color:#FFF;
+	margin:10px 5px 0px 0px;
+}
+.checkoutsec {
+	float:right;
+	margin:0 38px 0 0;
+	width:190px;
+}
+.checkoutsec ul{
+	float:left;
+	width:190px;
+	list-style:none;
+	padding-bottom:5px;
+}
+.checkoutsec ul.greycolr{
+	color:#666666;
+}
+.checkoutsec ul.redcolr{
+	color:#f00000;
+}
+.checkoutsec ul.blackcolr{
+	color:#333333;
+	font-size:14px;
+}
+.checkoutsec ul li.title{
+	float:left;
+	width:105px;
+	text-align:right;
+	padding-right:15px;
+}
+.checkoutsec ul li.figr{
+	float:left;
+	width:60px;
+	padding:0 10px 0 0;
+	text-align:right;
+}
+.checkoutsec a.proceed{
+	height:24px;
+	padding:10px 15px 0px 35px;
+	background-image:url(../images/cart_plus.png);
+	background-repeat:no-repeat;
+	background-position:10px 7px;
+	display:inline-block;
+	background-color:#333333;
+	color:#FFF;
+	margin:10px 5px 0px 0px;
+	float:right;
+}
+.discount {
+	width:300px;
+	min-height:77px;
+	padding:10px 15px;
+	float:left;
+	background-image:url(../images/discount.gif);
+	background-repeat:repeat-x;
+	background-position:bottom;
+	border:#eee solid 1px;
+	margin:40px 160px 0px 0px;
+	clear:both;
+}
+.discount h3 {
+	font-size:16px;
+}
+.discount p {
+	float:left;
+	width:300px;
+	padding:4px 0 5px 0;
+}
+.discount input{
+	float:left;
+	width:145px;
+	height:26px;
+	padding:0px 5px;
+	margin:0 5px 0 0;
+	line-height:24px;
+	background-color:#f7f7f7;
+	border:#d6d6d6 solid 1px;
+	color:#999999;
+}
+.discount button.coupon {
+	cursor:pointer;
+	height:28px;
+	padding:6px 15px 6px 35px;
+	background-image:url(../images/tick.png);
+	background-repeat:no-repeat;
+	background-position:10px 5px;
+	display:inline-block;
+	background-color:#333333;
+	color:#FFF;
+	float:left;
+	margin:0 0 0 3px;
+	border:none;
+	font-size:11px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+.discount a {
+	text-decoration:underline;
+}
+.method {
+	width:697px;
+	float:left;
+	margin:40px 0px 20px 0px;
+}
+.method h4{
+	padding:0px 0px 15px 0px;
+}
+.method a{
+	margin:0px 10px 0px 0px;
+}
+/*
+=======================================================================
+	Column 3 Rules
+=======================================================================
+*/
+.col3 {
+	width:680px;
+	float:left;
+}
+/*
+=======================================================================
+	Blog Rules
+=======================================================================
+*/
+.blog {
+	width:100%;
+	float:left;
+}
+.blog .post{
+	width:100%;
+	float:left;
+	padding-bottom:20px;
+}
+.blog .post .commentsbtn{
+	float:right;
+}
+.blog .post .commentsbtn a{
+	background-image:url(../images/comments.gif);
+	background-repeat:no-repeat;
+	background-position:left;
+	padding:0px 0px 0px 20px;
+	margin-top:14px;
+	display:inline-block;
+}
+.blog .post .post_desc{
+	float:left;
+	width:100%;
+}
+.blog .post .post_desc p a.thumb{
+	float:left;
+	border:#f4f4f4 solid 4px;
+	margin:4px 15px 0px 0px;
+}
+.blog .post .postedby{
+	float:left;
+	width:650px;
+	height:27px;
+	padding-left:30px;
+	background-image:url(../images/postedby.gif);
+	background-repeat:no-repeat;
+	background-position:10px 5px;
+	background-color:#f9f9f9;
+	margin-top:10px;
+}
+.blog .post .postedby p{
+	float:left;
+	padding:3px 0px 0px 0px;
+	width:auto;
+}
+/*
+=======================================================================
+	Paging Rules
+=======================================================================
+*/
+.paging {
+	float:left;
+	width:680px;
+}
+.paging ul{
+	list-style:none;
+	float:left;
+}
+.paging ul li{
+	float:left;
+	margin-right:5px;
+}
+.paging ul li.txt{
+	padding-top:3px;
+}
+.paging ul li a.numbr{
+	width:18px;
+	height:16px;
+	padding-top:2px;
+	border:#fff solid 1px;
+	text-align:center;
+	display:inline-block;
+}
+.paging ul li a.numbr:hover{
+	border:#c0c0c0 solid 1px;
+}
+.paging ul li a.select{
+	border:#c0c0c0 solid 1px;
+}
+.paging ul li a.paging_prev{
+	width:18px;
+	height:18px;
+	border:#c0c0c0 solid 1px;
+	text-align:center;
+	display:inline-block;
+	background-image:url(../images/paging_left.gif);
+	background-repeat:no-repeat;
+}
+.paging ul li a.paging_next{
+	width:18px;
+	height:18px;
+	border:#c0c0c0 solid 1px;
+	text-align:center;
+	display:inline-block;
+	background-image:url(../images/paging_right.gif);
+	background-repeat:no-repeat;
+}
+/*
+=======================================================================
+	Column 2 Rules
+=======================================================================
+*/
+.col2 {
+	width:187px;
+	float:right;
+}
+/*
+=======================================================================
+	Column 4 Rules
+=======================================================================
+*/
+.col4 {
+	width:238px;
+	float:right;
+	background-color:#f9f9f9;
+	padding-bottom:8px;
+}
+
+.adv {
+	width:214px;
+	height:195px;
+	padding:4px;
+	float:left;
+	background-color:#cecece;
+	margin:20px 0px 0px 8px;
+}
+/*
+=======================================================================
+	Small Listing Rules
+=======================================================================
+*/
+.smalllisting {
+	float:left;
+	width:100%;
+}
+.smalllisting ul{
+	float:left;
+	width:100%;
+	list-style:none;
+	padding:10px 0px;
+}
+.smalllisting ul li{
+	float:left;
+	width:155px;
+	padding:0px 19px 30px 21px;
+}
+.smalllisting ul li a.thumb{
+	float:left;
+	width:149px;
+	height:149px;
+	border:#e8e8e8 solid 3px;
+}
+.smalllisting ul li a.thumb:hover{
+	border:#333333 solid 3px;
+}
+.smalllisting ul li .detail_small{
+	padding:8px 0px 0px 0px;
+}
+.smalllisting ul li a.title{
+	display:inline-block;
+	padding-bottom:5px;
+}
+.smalllisting ul li p.oldprice{
+	padding:0px 0px 0px 20px;
+	margin:0px 0px 0px 0px;
+	background-image:url(../images/price_tag.gif);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	float:left;
+	color:#f00000;
+	text-decoration:line-through;
+}
+.smalllisting ul li p.newprice{
+	float:right;
+}
+.smalllisting ul li a.addtocart{
+	width:130px;
+	height:20px;
+	margin-top:10px;
+	padding:6px 0px 0px 25px;
+	background-color:#333333;
+	background-image:url(../images/plus.gif);
+	background-position:10px 9px;
+	background-repeat:no-repeat;
+	display:inline-block;
+	color:#FFF;
+	text-transform:uppercase;
+	font-size:10px;
+}
+/*
+=======================================================================
+	Product Detail Rules
+=======================================================================
+*/
+.prod_detail {
+	float:left;
+	width:940px;
+	float:left;
+}
+/*
+=======================================================================
+	Gallery Rules
+=======================================================================
+*/
+.gallery_sec {
+	float:left;
+	width:320px;
+	height:400px;
+	padding:10px;
+	border:#cccccc solid 3px;
+	float:left;
+	background-image:url(../images/lines.gif);
+}
+.prod_detail .sliderwrapper{
+	position: relative;
+	overflow: hidden;
+	width: 320px;
+	height: 400px;
+}
+.prod_detail .gallery_cont {
+	overflow:hidden;
+	width: 310px;
+	height: 310px;
+	border:#FFF solid 5px;
+}
+.prod_detail .sliderwrapper .contentdiv{
+	visibility: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 310px;
+	height: 310px;
+}
+.prod_detail a.prevgallery{
+	width:20px;
+	height:20px;
+	display:inline-block;
+	background-image:url(../images/gallery_left.png);
+	background-repeat:no-repeat;
+	float:left;
+	margin:20px 15px 0px 20px;
+}
+.prod_detail a.nextgallery{
+	width:20px;
+	height:20px;
+	display:inline-block;
+	background-image:url(../images/gallery_right.png);
+	background-repeat:no-repeat;
+	float:left;
+	margin:20px 0px 0px 23px;
+}
+.prod_detail .scrollingunit{
+	margin-top:10px;
+	float:left;
+	z-index:999;
+	position:relative;
+}
+.prod_detail .scrollingunit .anyClass{
+	float:left;
+}
+.prod_detail .scrollingunit .anyClass li{
+	border:#cccccc solid 1px;
+	margin-left:8px;
+}
+.prod_detail .scrollingunit .anyClass li img{
+	width:56px !important;
+	height:56px !important;
+	float:left;
+}
+/*
+=======================================================================
+	Product Detail Rules
+=======================================================================
+*/
+.detail_sec {
+	width:368px;
+	float:right;
+}
+a.addtocart {
+	height:20px;
+	padding:5px 15px 0px 35px;
+	background-image:url(../images/checkout.png);
+	background-repeat:no-repeat;
+	background-position:10px 5px;
+	display:inline-block;
+	background-color:#333333;
+	color:#FFF;
+	margin:10px 5px 0px 0px;
+}
+a.cont_shop {
+	height:20px;
+	padding:5px 15px 0px 35px;
+	background-image:url(../images/checkout.png);
+	background-repeat:no-repeat;
+	background-position:10px 5px;
+	display:inline-block;
+	background-color:#333333;
+	color:#FFF;
+	margin:10px 5px 0px 0px;
+}
+.bigbutton{
+	margin:20px 0px;
+	float:left;
+}
+.bigbutton a.prevprod{
+	display:inline-block;
+	height:19px;
+	padding:5px 10px 0px 25px;
+	float:left;
+	background-image:url(../images/arrow_left.gif);
+	background-repeat:no-repeat;
+	background-position:10px 7px;
+	background-color:#333;
+	color:#fff;
+	margin-right:1px;
+}
+.bigbutton a.nextprod{
+	display:inline-block;
+	height:19px;
+	padding:5px 25px 0px 10px;
+	float:left;
+	background-image:url(../images/arrow_right.gif);
+	background-repeat:no-repeat;
+	background-position:88% 45%;
+	background-color:#333;
+	color:#fff;
+}
+.detail_sec p.price{
+	color:#999999;
+	padding:4px 0px 0px 0px;
+}
+.detail_sec p.txt{
+	padding-bottom:15px;
+}
+.detail_sec ul.detailform{
+	float:left;
+	width:100%;
+	list-style:none;
+	padding-top:10px;
+}
+.detail_sec ul.detailform li.txt{
+	float:left;
+	width:70px;
+}
+.detail_sec ul.detailform li.infield{
+	float:left;
+	width:263px;
+}
+.detail_sec ul.detailform li.infield select{
+	float:left;
+	width:263px;
+	height:19px;
+	background-color:#FFF;
+	border:#d9d9d9 solid 1px;
+}
+.detail_sec p.expam{
+	padding:30px 0px 0px 0px;
+}
+.detail_sec ul.point{
+	list-style-position:inside;
+	padding:5px 0px 20px 0px;
+}
+.detail_sec ul.point li{
+	padding:0px 0px 5px 0px;
+}
+.detail_sec a.buttonone{
+	margin-right:10px;
+	margin-top:20px;
+}
+/*
+=======================================================================
+	Comments Rules
+=======================================================================
+*/
+.comments {
+	width:680px;
+	float:left;
+}
+.comments ul{
+	width:680px;
+	float:left;
+	list-style:none;
+}
+.comments ul li{
+	width:660px;
+	background-color:#f9f9f9;
+	float:left;
+	list-style:none;
+	padding:10px;
+	margin-bottom:10px;
+}
+.comments ul li .authore_date{
+	width:670px;
+	float:left;
+	padding:5px 5px 5px 5px;
+}
+.authore_date .authore{
+	float:left;
+}
+.authore_date .authore img{
+	float:left;
+	border:#cccccc solid 3px;
+	margin-right:10px;
+}
+.authore_date .authore p{
+	float:left;
+	padding-top:0px;
+	font-size:11px;
+	line-height:15px;
+}
+.authore_date p.date{
+	float:right;
+	padding:8px 0px 0px 0px;
+	color:#999999;
+}
+.comments ul li p.txt{
+	color:#aaa;
+	width:637px;
+	padding:4px;
+	float:left;
+}
+.comments ul li a.buttonone{
+	margin-right:10px;
+}
+.comments ul li .reply{
+	width:660px;
+	background-color:#ececec;
+	float:left;
+	list-style:none;
+	padding-bottom:10px;
+	margin:10px 0px 0px 0px;
+}
+.comments ul li .reply .authore_date{
+	width:640px;
+	float:left;
+	padding:10px;
+}
+.comments ul li .reply a.buttonone{
+	margin-right:10px;
+	margin-bottom:10px;
+}
+.comments ul li .reply p.txt{
+	color:#aaa;
+	width:640px;
+	padding:10px;
+	float:left;
+}
+
+.comments ul li .replythree{
+	width:640px;
+	background-color:#f9f9f9;
+	float:left;
+	list-style:none;
+	margin:10px 0px 0px 10px;
+}
+.comments ul li .replythree .authore_date{
+	width:620px;
+	float:left;
+	padding:10px;
+}
+.comments ul li .replythree a.buttonone{
+	margin-right:10px;
+	margin-bottom:10px;
+}
+.comments ul li .replythree p.txt{
+	color:#aaa;
+	width:620px;
+	padding:10px;
+	float:left;
+}
+/*
+=======================================================================
+	Leave Reply Rules
+=======================================================================
+*/
+.leavereply {
+	width:680px;
+	float:left;
+}
+.leavereply input{
+	width:419px;
+	height:24px;
+	padding:0px 5px;
+	line-height:24px;
+	background-color:#f9f9f9;
+	border:#e2e2e2 solid 1px;
+	float:left;
+	margin-top:10px;
+	color:#999999;
+}
+.leavereply textarea{
+	width:419px;
+	height:124px;
+	padding:5px;
+	background-color:#f9f9f9;
+	border:#e2e2e2 solid 1px;
+	float:left;
+	margin-top:10px;
+	color:#999999;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	overflow:auto;
+	margin-bottom:10px;
+}
+/*
+=======================================================================
+	Contact Rules
+=======================================================================
+*/
+.contact {
+	width:100%;
+	float:left;
+	padding:20px 0px;
+}
+.contact .leftsec{
+	width:300px;
+	float:left;
+	border-right:#eeeeee solid 1px;
+}
+.contact .leftsec ul{
+	list-style:none;
+	float:left;
+	padding-left:30px;
+	width:270px;
+}
+.contact .leftsec ul li{
+	float:left;
+	width:270px;
+	padding-left:30px;
+	padding-bottom:30px;
+}
+.contact .leftsec ul li.mobile{
+	float:left;
+	width:240px;
+	padding-left:30px;
+	background-image:url(../images/mobile.gif);
+	background-repeat:no-repeat;
+	background-position:0px 3px;
+}
+.contact .leftsec ul li.location{
+	float:left;
+	width:240px;
+	padding-left:30px;
+	background-image:url(../images/location.gif);
+	background-repeat:no-repeat;
+	background-position:0px 3px;
+}
+.contact .leftsec ul li.officehours{
+	float:left;
+	width:240px;
+	padding-left:30px;
+	background-image:url(../images/hours.gif);
+	background-repeat:no-repeat;
+	background-position:0px 3px;
+}
+.contact .rightsec{
+	width:600px;
+	float:right;
+}
+.contact .rightsec p.txt{
+	width:600px;
+	float:right;
+	border-bottom:#eeeeee solid 1px;
+	padding-bottom:30px;
+	margin-bottom:30px;
+}
+.formsec {
+	float:left;
+	width:600px;
+}
+.formsec input{
+	width:273px;
+	height:24px;
+	padding:0px 5px;
+	line-height:24px;
+	background-color:#f9f9f9;
+	border:#e2e2e2 solid 1px;
+	float:left;
+	margin-top:10px;
+	color:#999999;
+}
+.formsec input.bar{
+	margin-right:10px;
+}
+.formsec textarea{
+	width:569px;
+	height:124px;
+	padding:5px;
+	background-color:#f9f9f9;
+	border:#e2e2e2 solid 1px;
+	float:left;
+	margin-top:10px;
+	color:#999999;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	overflow:auto;
+	margin-bottom:10px;
+}
+/*
+=======================================================================
+	Static Page Rules
+=======================================================================
+*/
+.static {
+	float:left;
+	width:100%;
+	padding-bottom:20px;
+}
+a.bordrs {
+	padding:3px;
+	float:left;
+	background-color:#dddddd;
+}
+.static h1{
+	float:left;
+	width:100%;
+	padding:10px 0px;
+}
+.static h2{
+	float:left;
+	width:100%;
+	padding:8px 0px;
+}
+.static h3{
+	float:left;
+	width:100%;
+	padding:6px 0px;
+}
+.static h4{
+	float:left;
+	width:100%;
+	padding:5px 0px;
+}
+.static h5{
+	float:left;
+	width:100%;
+	padding:5px 0px;
+}
+.static h5 span{
+	padding-bottom:10px;
+}
+.static h6{
+	float:left;
+	width:100%;
+	padding:5px 0px;
+}
+.static h5{
+	float:left;
+	width:100%;
+	padding:5px 0px;
+	line-height:24px;
+}
+.static ul.imgs{
+	float:left;
+	list-style:none;
+	padding:5px 0px 10px 0px;
+}
+.static ul.imgs li{
+	float:left;
+	margin-right:10px;
+}
+.static .statictabs {
+	float:left;
+	width:100%;
+	padding:20px 0px;
+	margin:20px 0px;
+	border-top:#333333 solid 1px;
+	border-bottom:#333333 solid 1px;
+}
+.static .statictabs a.bordrs{
+	margin-right:20px;
+}
+.static .statictabs .lefttab{
+	float:left;
+	width:415px;
+	border-right:#333333 solid 1px;
+	margin-right:40px;
+	padding-right:40px;
+}
+.static .sec1 {
+	width:262px;
+	padding:0px 10px;
+	float:left;
+	margin-right:30px;
+	margin-top:20px;
+}
+.static .sec1 p{
+	width:262px;
+	float:left;
+	padding:0px 0px 10px 0px;
+}
+.static .sec1 a.bordrs{
+	margin-bottom:10px;
+}
+.static .sec2 {
+	width:282px;
+	float:left;
+	margin-right:30px;
+	margin-top:20px;
+}
+.static .sec2 p{
+	width:282px;
+	float:left;
+	padding:0px 0px 10px 0px;
+}
+.static .sec2 a.bordrs{
+	margin-bottom:10px;
+}
+.static .sec3 {
+	width:262px;
+	padding:0px 10px;
+	float:left;
+	margin-top:20px;
+}
+.static .sec3 p{
+	width:282px;
+	float:left;
+	padding:0px 0px 10px 0px;
+}
+.static .sec3 a.bordrs{
+	margin-bottom:10px;
+}
+.static ul.number{
+	width:100%;
+	float:left;
+	list-style:decimal;
+}
+.static ul.number li{
+	padding:4px 0px;
+}
+.bigsec {
+	width:100%;
+	float:left;
+	padding:20px 0px;
+}
+.bigsec a.left{
+	margin:0px 20px 10px 0px;
+}
+.grayborder {
+	width:100%;
+	border-top:#eeeeee solid 1px;
+	margin:10px 0px;
+	height:1px;
+	overflow:hidden;
+}
+/*
+=======================================================================
+	Footer Section Rules
+=======================================================================
+*/
+#footer {
+	width:910px;
+	padding:20px 25px;
+	float:left;
+	background-color:#333333;
+	color:#888888;
+}
+#footer a{
+	color:#888888;
+}
+#footer a:hover {
+	color:#fff;
+}
+/*
+=======================================================================
+	Get the latest News Rules
+=======================================================================
+*/
+#footer .getnews{
+	width:220px;
+	float:left;
+	margin-right:10px;
+	min-height:130px;
+}
+#footer .getnews h6{
+	width:220px;
+	float:left;
+	padding-bottom:8px;
+	border-bottom:#444444 solid 1px;
+	color:#FFF;
+	margin-bottom:7px;
+}
+#footer .getnews ul{
+	margin:10px 0px;
+	list-style:none;
+	background-color:#FFF;
+	width:199px;
+	height:24px;
+	list-style:none;
+}
+#footer .getnews ul li{
+	float:left;
+}
+#footer .getnews ul li input.bar{
+	float:left;
+	width:161px;
+	height:24px;
+	line-height:24px;
+	border:0px solid white !important;
+	padding:0px 5px;
+}
+#footer .getnews ul li a.submitbtn{
+	float:left;
+	width:28px;
+	height:24px;
+	background-image:url(../images/email.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+/*
+=======================================================================
+	Quick Delivery Rules
+=======================================================================
+*/
+#footer .quick{
+	width:220px;
+	float:left;
+	margin-right:10px;
+	min-height:130px;
+}
+#footer .quick h6{
+	width:220px;
+	float:left;
+	padding-bottom:8px;
+	border-bottom:#444444 solid 1px;
+	color:#FFF;
+	margin-bottom:7px;
+}
+#footer .quick p{
+	width:220px;
+	padding:5px 0px;
+}
+/*
+=======================================================================
+	Archive Rules
+=======================================================================
+*/
+#footer .archive{
+	width:220px;
+	float:left;
+	margin-right:10px;
+	min-height:130px;
+}
+#footer .archive h6{
+	width:220px;
+	float:left;
+	padding-bottom:8px;
+	border-bottom:#444444 solid 1px;
+	color:#FFF;
+	margin-bottom:7px;
+}
+#footer .archive ul{
+	width:220px;
+	float:left;
+	list-style:none;
+}
+#footer .archive ul li{
+	width:220px;
+	padding:5px 0px;
+	float:left;
+	list-style:none;
+}
+/*
+=======================================================================
+	Archive Rules
+=======================================================================
+*/
+#footer .contactinfo{
+	width:220px;
+	float:left;
+	min-height:130px;
+}
+#footer .contactinfo h6{
+	width:220px;
+	float:left;
+	padding-bottom:8px;
+	border-bottom:#444444 solid 1px;
+	color:#FFF;
+	margin-bottom:7px;
+}
+#footer .contactinfo ul{
+	width:220px;
+	float:left;
+	list-style:none;
+}
+#footer .contactinfo ul li{
+	width:197px;
+	padding:5px 0px 5px 23px;
+	float:left;
+	list-style:none;
+}
+#footer .contactinfo ul li.adress{
+	background-image:url(../images/footer_icon1.gif);
+	background-repeat:no-repeat;
+	background-position:0px 5px;
+}
+#footer .contactinfo ul li.email{
+	background-image:url(../images/footer_icon2.gif);
+	background-repeat:no-repeat;
+	background-position:0px 5px;
+}
+#footer .contactinfo ul li.url{
+	background-image:url(../images/footer_icon3.gif);
+	background-repeat:no-repeat;
+	background-position:0px 5px;
+}
+/*
+=======================================================================
+	Copyrights Section Rules
+=======================================================================
+*/
+#copyrights {
+	width:960px;
+	padding:0px 0px;
+	float:left;
+	color:#888888;
+}
+#copyrights p{
+	width:940px;
+	height:24px;
+	padding:6px 10px 0px 10px;
+	float:left;
+	color:#888888;
+	background-color:#222222;
+}
+#copyrights a.top{
+	height:22px;
+	padding:6px 7px 0px 22px;
+	float:right;
+	color:#fff;
+	background-color:#333333;
+	background-image:url(../images/arrow_up.gif);
+	background-repeat:no-repeat;
+	background-position:7px 10px;
+	display:inline-block;
+	margin-right:14px;
+}
+/*
+=======================================================================
+	Right Navigation Rules
+=======================================================================
+*/
+.rightnavi {
+	width:238px;
+	float:left;
+}
+.rightnavi h3{
+	width:210px;
+	padding:15px 14px 5px 14px;
+	float:left;
+	border-bottom:#e7e7e7 solid 1px;
+	font-size:14px;
+}
+.rightnavi ul{
+	width:238px;
+	padding:10px 0px;
+	float:left;
+	list-style:none;
+}
+.rightnavi ul li{
+	width:194px;
+	padding:5px 10px 5px 34px;
+	float:left;
+	background-image:url(../images/arrow_right_navi.gif);
+	background-repeat:no-repeat;
+	background-position:12px 10px;
+}
+/*
+====================================================================
+	Checkout
+====================================================================
+*/
+div.col3 {
+	margin-bottom:50px;
+}
+div.svocheckoutdetail h3 {
+	display:none;
+}
+div.svocheckoutdetail h4 {
+	font-weight:bold;
+	margin-bottom:20px;
+	font-size:14px;
+}
+div.svoaccountlogin h4 {
+	margin-bottom:10px;
+}
+div.svocheckoutdetail dl, div.svoaccountlogin dl {
+	width:310px;
+	float:none;
+}
+div.svocheckoutdetail dl dt, div.svoaccountlogin dl dt	{
+	display:inline-block;
+	font-size:13px;
+	width:135px;
+	margin-bottom:10px;
+	vertical-align:top;
+}
+div.svocheckoutdetail dl dd, div.svoaccountlogin dl dd {
+	display:inline-block;
+	width:165px;
+	margin-bottom:10px;
+}
+
+div.svocheckoutdetail input, div.svocheckoutdetail select {
+	width:160px;
+	height:30px;
+	line-height:30px;
+	padding:3px 5px 0px 5px;
+	background-repeat:no-repeat;
+	border:#cccccc solid 1px;
+	color:#666666;
+	font-size:14px;
+}
+div.svocheckoutdetail select {
+	width: 172px;
+}
+div.svocheckoutdetail div.svoaccountlogin {
+	float:left;
+	padding-left:10px;
+	width:300px;
+}
+div.svoaccountdetail h4 {
+	font-size:14px;
+}
+div.svoaccountlogin ul {
+	float:left;
+	width:100%;
+	margin:10px 0 0 0;
+	list-style:none;
+}
+div.svoaccountlogin ul li {
+	padding: 3px 0;
+}
+dd.spdsecuritycode input {
+	width:70px;
+}
+dd.spdcreditcardexpirationdate select {
+	width:70px;
+}
+div.svocheckoutdetail div.accountDetails {
+	float:left;
+	margin-left:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	border-left:1px solid #cccccc;
+}
+div.svocheckoutdetail div.shippingAddress {
+	float:left;
+	padding-left:10px;
+	padding-bottom:20px;
+	padding-right:20px;
+	border-right:1px solid #cccccc;
+}
+div.svocheckoutdetail div.shippingMethod {
+	float:left;
+	margin-left:20px;
+	width:310px;
+}
+div.svocheckoutdetail div.paymentAddress {
+	float:left;
+	padding-left:10px;
+	padding-bottom:20px;
+	padding-right:20px;
+	border-right:1px solid #cccccc;
+}
+div.svocheckoutdetail div.paymentMethod {
+	float:left;
+	margin-left:20px;
+	width:310px;
+}
+div.svocheckoutdetail div.paymentAddress dl.sameAsShipping input {
+	width:14px;
+	height:14px;
+	top:2px;
+	position:relative;
+}
+div.svocheckoutdetail dd#spdguestcheckout input,
+div.svocheckoutdetail div.shippingMethod input
+ {
+	width:14px;
+	height:14px;
+}
+div.svocheckoutdetail div.shippingMethod dt {
+	width:200px;
+}
+div.svocheckoutdetail div.shippingMethod dd {
+	width:100px;
+}
+div.svocheckoutdetail button, button {
+	padding: 8px 25px 8px 25px;
+	display: inline-block;
+	background-color: #333;
+	font-size:16px;
+	color: white;
+	margin: 10px 5px 0px 0px;
+	border:none;
+	cursor:hand; cursor:pointer;
+}
+div.svocheckoutdetail button:hover {
+	background-color: #444;
+}
+div.svocheckoutdetail a:hover {
+	text-decoration:underline;
+}
+div.checkoutright h2 {
+	font-size:14px;
+	font-weight:bold;
+	padding:5px 15px 0px 15px;
+}
+div.checkoutright h3 {
+	margin-top:20px;
+}
+div.checkoutright ul li {
+	background: none !important;
+	padding: 2px 15px 2px 15px !important;
+}
+div.checkoutright ul li span.price {
+	float:right;
+}
+div.checkoutright ul li {
+	width:205px;
+}
+div.checkoutright ul li.total {
+	font-weight:bold;
+	margin-top:5px;
+}
+div.checkoutright a.edit {
+	font-size:10px;
+	color:#0000CC;
+	float:right;
+	margin-top:5px;
+}
+div.svoorderconfirmation dl dt,
+div.svoorderdetail dl dt {
+	float:left;
+	margin:0 5px 0 0;
+	font-weight:bold;
+}
+div.svoorderconfirmation dl dt,
+div.svoorderdetail dl dt,
+div.svoorderconfirmation dl dd,
+div.svoorderdetail dl dd {
+	height:18px;
+	margin-bottom:4px;
+}
+div.svoorderdetail form dl dt {
+	width:160px;
+}
+div.svoorderconfirmation table,
+div.svoorderdetail table,
+div.svoaccountlistorder table {
+	margin:10px 0 0 0;
+}
+div.svoorderconfirmation table a,
+div.svoaccountlistorder table a {
+	text-decoration:underline;
+}
+div.svoorderconfirmation table tr th,
+div.svoorderconfirmation table tr td,
+div.svoorderdetail table tr th,
+div.svoorderdetail table tr td,
+div.svoaccountlistorder table tr th,
+div.svoaccountlistorder table tr td {
+	text-align:left;
+	padding: 5px 10px;
+}
+div.svoorderconfirmation table tr th,
+div.svoorderdetail table tr th,
+div.svoaccountlistorder table tr th {
+	background:#fafafa;
+}
+ul#accountNav {
+	list-style: square;
+	margin:10px 20px;
+}
+ul#accountNav a:hover {
+	text-decoration:underline;
+}
+div.svoaccountdetail dl dt {
+	float:left;
+	margin:0 10px 0 0;
+	font-weight:bold;
+}
+p.error, .error, span.formError {
+	color:#f00000;
+}
+div#svEditProfile fieldset {
+	padding:10px;
+	margin:10px 0 0 0;
+}
+div#svEditProfile ul {
+	list-style:none;
+}
+div#svEditProfile ul li {
+	padding:3px 0;
+}
+div#svEditProfile label {
+	width:110px;
+	float:left;
+}
+div#svEditProfile input[type="submit"], div.svoorderdetail button[type="submit"], form#svSearchAgain input[type="submit"] {
+	margin:10px 0 0 0;
+	padding: 5px 20px;
+	background-color: #333;
+	color: white;
+	text-transform: uppercase;
+	font-size: 10px;
+	border:none;
+	cursor:pointer;
+}
+#svSearchResults .moreResults {
+	margin:10px 0;
+}
+#svSearchResults .moreResults ul {
+	list-style:none;
+}
+#svSearchResults #svPortal .heading {
+	border:none;
+	margin:10px 0;
+	padding:0;
+}
+#svSearchResults #svPortal .heading h4 {
+	font-size:14px;
+	padding:0;
+	margin:0;
+}
+#svSearchResults #svPortal .post {
+	padding:0 0 10px 0;
+	border-bottom:1px dotted #ccc;
+}
+#svSearchResults #svPortal .post:first-child {
+	border-top:1px dotted #ccc;
+}
+#svSearchResults #svPortal .post_desc {
+	padding:0 0 0 10px;
+	margin:10px 0;
+	border-left:1px solid #ccc;
+}
+#svSearchResults #svPortal .post_desc p {
+	width:100%;
+}
+
+
+
+
+
+
+
+
+
+
+
