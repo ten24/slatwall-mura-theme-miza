@@ -39,6 +39,13 @@ Notes:
 <cfset local.imageGalleryArray = $.slatwall.product().getImageGalleryArray([{width=62},{size="m"},{size="l"}]) />
 
 <cfoutput>
+	<script type="text/javascript">
+	$(document).ready( function() {
+		if (jQuery('##skuIDs').val()==""){
+			jQuery('##addtocartbtn').addClass('gray');
+		};
+	});
+	</script>
 	<div class="gallery_sec">
 		<div id="slider2" class="gallery_cont">
 			<cfloop array="#local.imageGalleryArray#" index="local.galleryImage">
@@ -79,10 +86,10 @@ Notes:
 				<ul class="detailform">
 					<li class="txt">Options *</li>
 					<li class="infield">
-						<select name="skuID">
+						<select name="skuID" id="skuIDs">
 							<option value="">Select Option</option>
 							<cfloop array="#$.slatwall.product().getSkus(true)#" index="local.sku">
-								<option value="#local.sku.getSkuID()#" price="#dollarFormat(local.sku.getPrice())#" imageFileName="#local.sku.getImageFile()#">#local.sku.displayOptions()#<cfif local.sku.getPrice() neq $.slatwall.product('livePrice')> - #dollarFormat(local.sku.getPrice())#</cfif></option>
+								<option value="#local.sku.getSkuID()#" price="#dollarFormat(local.sku.getLivePrice())#" imageFileName="#local.sku.getImageFile()#">#local.sku.displayOptions()#<cfif local.sku.getPrice() neq $.slatwall.product('livePrice')> - #dollarFormat(local.sku.getLivePrice())#</cfif></option>
 							</cfloop>
 						</select>
 					</li>
@@ -92,11 +99,12 @@ Notes:
 						jQuery('span.productPrice').html( jQuery('select[name=skuID] option:selected').attr('price') );
 						var selector = 'a[imageFileName="' + jQuery('select[name=skuID] option:selected').attr('imageFileName') + '"]';
 						jQuery(selector).click();
+						if (jQuery('select[name=skuID]').val()==""){jQuery('##addtocartbtn').addClass('gray');jQuery('.pleaseselect').show();}
+						else {jQuery('##addtocartbtn').removeClass('gray');jQuery('.pleaseselect').hide();};
 					});
 				</script>
 			</cfif>
 	        <!--- END: Product Options --->
-				
 			<!--- Product Customizations --->
 			<cfloop array="#$.slatwall.product().getAttributeSets(['astProductCustomization'])#" index="local.customizationAttributeSet">
 				<div class="productCustomizationSet #lcase(replace(local.customizationAttributeSet.getAttributeSetName(), ' ', '', 'all'))#">
@@ -112,9 +120,18 @@ Notes:
 			
 	        <div class="clear"></div>
 			<div class="clear"></div>
-	        <a href="javascript:void(0);" onClick="jQuery('##addToCart').submit();" class="addtocart">Add to Cart</button>
+	        <a href="javascript:void(0);"  id="addtocartbtn" class="addtocart">Add to Cart</button>
 	        <a href="/" class="cont_shop">Continue Shopping</a>
+			<p class="pleaseselect">Please select an option from the drop-down.</p>
+			<script type="text/javascript">
+			jQuery('##addtocartbtn').click(function(){
+				if (jQuery('##skuIDs').val()==""){jQuery('.pleaseselect').show();}
+				else {jQuery('##addToCart').submit();};
+			});
+			</script>
+
 		</form>
+		
 		<!--- END: Add To Cart Form --->
     </div>
 </cfoutput>

@@ -74,9 +74,7 @@ Notes:
 									<cfset emailValue = rc.account.getPrimaryEmailAddress().getEmailAddress() />	
 								</cfif>
 								<input type="text" name="account.emailAddress" value="#emailValue#" />
-								<cfif len(rc.account.getErrorBean().getError("primaryEmailAddress"))>
-									<span class="formError">#rc.account.getErrorBean().getError("primaryEmailAddress")#</span>
-								</cfif>
+								<cf_SlatwallErrorDisplay object="#rc.account#" errorName="primaryEmailAddress" for="account.emailAddress" />
 							</dd>
 							<dt class="spdphonenumber">
 								<label for="account.phoneNumber" class="required">#$.slatwall.rbKey('entity.accountPhoneNumber.phoneNumber')#</label>
@@ -87,9 +85,7 @@ Notes:
 									<cfset phoneValue = rc.account.getPrimaryPhoneNumber().getPhoneNumber() />	
 								</cfif>
 								<input type="text" name="account.phoneNumber" value="#phoneValue#" />
-								<cfif len(rc.account.getErrorBean().getError("primaryPhoneNumber"))>
-									<span class="formError">#rc.account.getErrorBean().getError("primaryPhoneNumber")#</span>
-								</cfif>
+								<cf_SlatwallErrorDisplay object="#rc.account#" errorName="primaryPhoneNumber" for="account.phoneNumber" />
 							</dd>
 							<cfif rc.account.isGuestAccount()>
 								<dt class="spdguestcheckout">
@@ -104,9 +100,7 @@ Notes:
 								</dt>
 								<dd id="spdpassword" class="guestHide">
 									<input type="password" name="account.password" value="" />
-									<cfif len(rc.account.getErrorBean().getError("password"))>
-										<span class="formError">#rc.account.getErrorBean().getError("password")#</span>
-									</cfif>
+									<cf_SlatwallErrorDisplay object="#rc.account#" errorName="password" for="password" />
 								</dd>
 							</cfif>
 						</dl>

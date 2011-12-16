@@ -39,36 +39,26 @@ Notes:
 <cfparam name="rc.edit" type="string" default="" />
 <cfparam name="rc.orderRequirementsList" type="string" default="" />
 
-<cfif not isNull($.slatwall.cart().getOrderFulfillments()[1].getShippingAddress())>
-	<cfset local.address = $.slatwall.cart().getOrderFulfillments()[1].getShippingAddress() />
-<cfelse>
-	<cfset local.address = $.slatwall.getService("addressService").newAddress() />
-</cfif>
-
-<cfif rc.edit eq "fulfillment" || listFind(rc.orderRequirementsList, "fulfillment")>
-	<cfset local.edit = true />
-<cfelse>
-	<cfset local.edit = false />
-</cfif>
-
 <cfoutput>
 	<div class="svocheckoutfulfillment">
 		<form name="fulfillmentShipping" action="?slatAction=frontend:checkout.saveOrderFulfillments" method="post">
-			<div class="shippingAddress">
-				<h4>Shipping Address</h4>
-				<cf_SlatwallAddressDisplay address="#local.address#" fieldNamePrefix="orderFulfillments[1].shippingAddress." edit="#local.edit#">
-				<input type="hidden" name="orderFulfillments[1].orderFulfillmentID" value="#$.slatwall.cart().getOrderFulfillments()[1].getOrderFulfillmentID()#" />
-			</div>
-			<div class="shippingMethod">
-				<h4>Shipping Method</h4>
-				<cfif arrayLen($.slatwall.cart().getOrderFulfillments()[1].getOrderShippingMethodOptions())>
-					<cf_SlatwallShippingMethodDisplay orderFulfillmentIndex="1" orderFulfillmentShipping="#$.slatwall.cart().getOrderFulfillments()[1]#" edit="#local.edit#">
-					<button type="submit">Save & Continue</button>
-				<cfelse>
-					<p>Please enter a valid Shipping Address so shipping rates can be calculated.</p>
-					<button type="submit">Get Shipping Rates</button>
-				</cfif>
-			</div>
+			<cfset local.orderFulfillmentIndex = 1 />
+			<cfloop array="#$.slatwall.cart().getOrderFulfillments()#" index="local.fulfillment">
+				<div class="fulfillmentOptions">
+					<cfset params = structNew() />
+					<cfset params.orderFulfillment = local.fulfillment />
+					<cfset params.orderFulfillmentIndex = local.orderFulfillmentIndex />
+					<cfset local.orderFulfillmentIndex += 1 />
+					<cfif listFind(rc.orderRequirementsList, local.fulfillment.getOrderFulfillmentID())
+						OR rc.edit eq local.fulfillment.getOrderFulfillmentID()
+						OR (rc.edit eq "fulfillment" and arrayLen($.slatwall.cart().getOrderFulfillments())) eq 1>
+						<cfset params.edit = true />
+					<cfelse>
+						<cfset params.edit = false />
+					</cfif>
+					#view("frontend:checkout/fulfillment/#local.fulfillment.getFulfillmentMethod().getFulfillmentMethodID()#", params)# 
+				</div>
+			</cfloop>
 		</form>
 	</div>
 </cfoutput>

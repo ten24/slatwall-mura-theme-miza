@@ -360,7 +360,6 @@ ul.forms li.textsec textarea{
 }
 .cartsec ul li a.cartbutn{
 	z-index:999 !important;
-	position:absolute;
 	background-image:url(../images/cart_pointer.gif);
 	background-repeat:no-repeat;
 	background-position:90% 50%;
@@ -1289,6 +1288,20 @@ a.addtocart {
 	color:#FFF;
 	margin:10px 5px 0px 0px;
 }
+a#addtocartbtn.gray {
+	cursor:default;
+	opacity:.3;
+}
+p.pleaseselect {
+	background-color:#f00000;
+	margin:5px 20px;
+	padding:0 5px;
+	color:#fff;
+	opacity:.5;
+	float:left;
+	clear:both;
+	display:none;
+}
 a.cont_shop {
 	height:20px;
 	padding:5px 15px 0px 35px;
@@ -2199,6 +2212,10 @@ div#svEditProfile ul li {
 div#svEditProfile label {
 	width:110px;
 	float:left;
+}
+div#svEditProfile #profile fieldset ul li input.text,
+div#svEditProfile #profile fieldset ul li input[type="text"] {
+	padding:0 3px;
 }
 div#svEditProfile input[type="submit"], div.svoorderdetail button[type="submit"], form#svSearchAgain input[type="submit"] {
 	margin:10px 0 0 0;

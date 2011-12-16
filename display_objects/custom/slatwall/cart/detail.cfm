@@ -54,7 +54,10 @@ Notes:
 	        <li class="itemprice"><h5 class="colr">Total</h5></li>
 	    </ul>
 		<cfset discountedTotal = 0>
-		<cfloop array="#$.slatwall.cart('orderItems')#" index="local.orderItem">
+		<cfset formIndex = 0 />
+		<cfloop array="#$.slatwall.cart().getOrderItems()#" index="local.orderItem">
+			<cfset formIndex ++ />
+			<input type="hidden" name="orderItems[#formIndex#].orderItemID" value="#local.orderItem.getOrderItemID()#" />
 			<ul class="cartitems <cfif $.slatwall.cart('discountTotal') GT 0>wdiscount</cfif>">
 	        	<li class="remove"><a href="#$.createHREF(filename='shopping-cart')#" class="removeItem" orderItemID="#local.orderItem.getOrderItemID()#">&nbsp;</a></li>
 				<li class="items">#local.orderItem.getSku().getImage(width=50)#</li>
@@ -67,7 +70,7 @@ Notes:
 						</p>
 					</a>
 				</li>
-				<li class="qty"><input name="orderItem.#local.orderItem.getOrderItemID()#.quantity" type="text" value="#NumberFormat(local.orderItem.getQuantity(),"0")#" /></li>
+				<li class="qty"><input name="orderItems[#formIndex#].quantity" type="text" value="#NumberFormat(local.orderItem.getQuantity(),"0")#" /></li>
 				<li class="itemprice">#DollarFormat(local.orderItem.getPrice())#</li>
 				<li class="itemprice <cfif local.orderItem.getDiscountAmount() gt 0>discounted</cfif>">
 					<span>#DollarFormat(local.orderItem.getExtendedPrice())#</span><cfif local.orderItem.getDiscountAmount() gt 0><br/>#DollarFormat(local.orderItem.getExtendedPriceAfterDiscount())#</cfif>

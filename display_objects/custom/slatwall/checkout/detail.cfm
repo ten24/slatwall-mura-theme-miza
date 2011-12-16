@@ -74,12 +74,12 @@ Notes:
 			<cfif not listFind(rc.orderRequirementsList, "fulfillment")>
 				<h3>Shipping <a class="edit" href="#$.createHREF(filename='checkout', queryString='edit=fulfillment')#">edit</a></h3>
 				<ul>
-					<li>#$.slatwall.cart().getOrderFulfillments()[1].getShippingAddress().getName()#</li>
-					<li>#$.slatwall.cart().getOrderFulfillments()[1].getShippingAddress().getCompany()#</li>
-					<li>#$.slatwall.cart().getOrderFulfillments()[1].getShippingAddress().getStreetAddress()#</li>
-					<li>#$.slatwall.cart().getOrderFulfillments()[1].getShippingAddress().getStreet2Address()#</li>
-					<li>#$.slatwall.cart().getOrderFulfillments()[1].getShippingAddress().getCity()#, #$.slatwall.cart().getOrderFulfillments()[1].getShippingAddress().getStateCode()# #$.slatwall.cart().getOrderFulfillments()[1].getShippingAddress().getPostalCode()# </li>
-					<li>#$.slatwall.cart().getOrderFulfillments()[1].getShippingAddress().getCountryCode()#</li>
+					<li>#$.slatwall.cart().getOrderFulfillments()[1].getAddress().getName()#</li>
+					<li>#$.slatwall.cart().getOrderFulfillments()[1].getAddress().getCompany()#</li>
+					<li>#$.slatwall.cart().getOrderFulfillments()[1].getAddress().getStreetAddress()#</li>
+					<li>#$.slatwall.cart().getOrderFulfillments()[1].getAddress().getStreet2Address()#</li>
+					<li>#$.slatwall.cart().getOrderFulfillments()[1].getAddress().getCity()#, #$.slatwall.cart().getOrderFulfillments()[1].getAddress().getStateCode()# #$.slatwall.cart().getOrderFulfillments()[1].getAddress().getPostalCode()# </li>
+					<li>#$.slatwall.cart().getOrderFulfillments()[1].getAddress().getCountryCode()#</li>
 				</ul>
 			</cfif>
 			<h3>Totals</h3>
