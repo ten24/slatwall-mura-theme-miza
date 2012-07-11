@@ -56,7 +56,7 @@ Notes:
 					<cfelse>
 						<cfset params.edit = false />
 					</cfif>
-					#view("frontend:checkout/fulfillment/#local.fulfillment.getFulfillmentMethod().getFulfillmentMethodID()#", params)# 
+					#view("frontend:checkout/fulfillment/#local.fulfillment.getFulfillmentMethodType()#", params)# 
 				</div>
 			</cfloop>
 		</form>

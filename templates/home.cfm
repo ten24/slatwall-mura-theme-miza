@@ -10,7 +10,7 @@
 	        	<h4 class="colr heading">Recently Added Products!</h4>
 				
 				<!--- Custom home page listing --->
-				<cfset recentProducts = $.slatwall.productList(contentID="") />
+				<cfset recentProducts = $.slatwall.getService("productService").getProductSmartList() />
 				<cfset recentProducts.addOrder("createdDateTime|DESC") />
 				<cfset local.displayCount = 1 />
 				<cfset local.liClass = "first" />

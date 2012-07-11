@@ -59,6 +59,7 @@ Notes:
             <div class="anyClass" id="paginate-slider2">
                 <ul>
                 	<cfloop array="#local.imageGalleryArray#" index="local.galleryImage">
+						<cfparam name="local.galleryImage.originalFilename" default="" />
 			            <li><a href="javascript:void(0);" class="toc" imageFileName="#local.galleryImage.originalFilename#"><img src="#local.galleryImage.resizedImagePaths[1]#" alt="#local.galleryImage.name#" /></a></li>
 					</cfloop>
                 </ul>

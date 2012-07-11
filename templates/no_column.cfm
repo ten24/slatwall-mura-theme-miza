@@ -18,7 +18,7 @@
 			        <li><a href="##"><img src="#$.siteConfig('themeAssetPath')#/images/del.gif" alt="" /></a></li>
 			    </ul>
 			</div>
-			<cfif $.content('subType') eq "SlatwallProductListing"><div class="listing"><cfelse><div class="static"></cfif>
+			<cfif not isNull($.slatwall.getCurrentContent()) AND $.slatwall.getCurrentContent().setting('contentProductListingFlag') EQ 1><div class="listing"><cfelse><div class="static"></cfif>
 				#$.dspBody(body=$.content("body"),pageTitle="",crumblist=0)#
 	        </div>
 			<div class="clear"></div>
