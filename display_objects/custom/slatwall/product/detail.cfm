@@ -77,7 +77,8 @@ Notes:
             #$.slatwall.product('productDescription')#
         </p>
 		<!--- Add To Cart Form --->
-		<form id="addToCart" action="?slatAction=frontend:cart.addItem" method="post">
+		<form id="addToCart" action="#$.createHREF(filename=$.slatwall.setting('globalPageShoppingCart'),queryString='nocache=1')#" method="post">
+			<input type="hidden" name="slatAction" value="frontend:cart.addItem" />
 			<input type="hidden" name="productID" value="#$.slatwall.Product().getProductID()#" />
 			
 			<!--- Product Options --->

@@ -51,7 +51,7 @@ Notes:
 			<cfif listFind(rc.orderRequirementsList, 'account') || rc.edit eq "account">
 				<cfif listFind(rc.orderRequirementsList, 'account')>
 					<cfset $.event('loginSlatAction', 'frontend:checkout.loginAccount') />
-					#view("frontend:account/login")#
+					#view("account/login")#
 				</cfif>
 				<cfif rc.edit neq "account">
 					<div class="accountDetails">

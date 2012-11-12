@@ -39,6 +39,7 @@ Notes:
 <cfparam name="params.orderFulfillment" type="any" />
 <cfparam name="params.orderFulfillmentIndex" type="string" />
 <cfparam name="params.edit" type="boolean" />
+<cfparam name="params.selectedAccountAddressID" type="string" default="" />
 
 <cfset local.address = $.slatwall.getService("addressService").newAddress() />
 
@@ -66,76 +67,42 @@ Notes:
 	<div class="svocheckoutfulfillmentshipping">
 		<div class="shippingAddress">
 			<h4>Shipping Address</h4>
-			
-			<!--- If In Edit Mode, show the different Shipping Address Form Fields --->
-			<cfif params.edit>
-				
-				<!--- Check For Account Address Options, Loop over and create the various form fields for each --->
-				<cfif arrayLen($.slatwall.account().getAccountAddresses())>
-					<dl>
-						<dt><label for="orderFulfillments[#params.orderFulfillmentIndex#].addressIndex">Select an Address</label></dt>
-						<dd>
-							<select name="orderFulfillments[#params.orderFulfillmentIndex#].addressIndex">
-								<option value="0">New Address</option>
-								<cfloop from="1" to="#arrayLen($.slatwall.account().getAccountAddresses())#" index="local.addressIndex">
-									<cfset local.accountAddress = $.slatwall.account().getAccountAddresses()[local.addressIndex] />
-									<option value="#local.addressIndex#" <cfif local.selectedAccountAddressID EQ local.accountAddress.getAccountAddressID()>Selected</cfif>>#local.accountAddress.getAccountAddressName()#</option>
-								</cfloop>
-							</select>
-						</dd>
-					</dl>
+			<cfif arrayLen(params.orderFulfillment.getAccountAddressOptions())>
+				<p>Select an Address</p>
+				<select name="orderFulfillments[#params.orderFulfillmentIndex#].addressIndex">
+					<option value="0">New Address</option>
 					<cfloop from="1" to="#arrayLen($.slatwall.account().getAccountAddresses())#" index="local.addressIndex">
-						<cfset local.accountAddress = request.slatwallScope.account().getAccountAddresses()[local.addressIndex] />
-						<div id="shippingAddress_#local.addressIndex#" class="addressBlock" style="display:none;">
-							<!--- Uncomment if you want to be able to rename address nicknames during checkout --->
-							<!---
-							<dl>
-								<dt><label for="orderFulfillments[#params.orderFulfillmentIndex#].accountAddresses[#local.addressIndex#].accountAddressName">Address Nickname</label></dt>
-								<dd><input type="text" name="orderFulfillments[#params.orderFulfillmentIndex#].accountAddresses[#local.addressIndex#].accountAddressName" value="#local.accountAddress.getAccountAddressName()#" /></dd>	
-							</dl>
-							--->
-							<cf_SlatwallAddressDisplay address="#local.accountAddress.getAddress()#" fieldNamePrefix="orderFulfillments[#params.orderFulfillmentIndex#].accountAddresses[#local.addressIndex#].address." edit="true">
-							<input type="hidden" name="orderFulfillments[#params.orderFulfillmentIndex#].accountAddresses[#local.addressIndex#].accountAddressID" value="#local.accountAddress.getAccountAddressID()#" />
-						</div>
+						<cfset local.accountAddress = $.slatwall.account().getAccountAddresses()[local.addressIndex] />
+						<option value="#local.addressIndex#" <cfif params.selectedAccountAddressID EQ local.accountAddress.getAccountAddressID()>Selected</cfif>>#local.accountAddress.getAccountAddressName()#</option>
 					</cfloop>
-				</cfif>
-				
-				<!--- New Address Form --->
-				<div id="shippingAddress_0" class="addressBlock" style="display:none;">
-					<cf_SlatwallAddressDisplay address="#local.address#" fieldNamePrefix="orderFulfillments[#params.orderFulfillmentIndex#].shippingAddress." edit="#params.edit#">
-					
-					<!--- Save New Address Option (Only if not a guest account) --->
-					<cfif not $.slatwall.account().isGuestAccount()>
-						<dl>
-							<dt><label for="orderFulfillments[#params.orderFulfillmentIndex#].saveAccountAddress">Save This Address</label></dt>
-							<dd>
-								<input type="hidden" name="orderFulfillments[#params.orderFulfillmentIndex#].saveAccountAddress" value="" />
-								<input type="checkbox" name="orderFulfillments[#params.orderFulfillmentIndex#].saveAccountAddress" value="1" />
-							</dd>
-						</dl>
-						<dl style="display:none;" class="accountAddressName">
-							<dt><label for="orderFulfillments[#params.orderFulfillmentIndex#].saveAccountAddressName">Address Nickname</label></dt>
-							<dd>
-								<input type="text" name="orderFulfillments[#params.orderFulfillmentIndex#].saveAccountAddressName" value="" />
-							</dd>
-						</dl>
-					</cfif>
-				</div>
-				
-				<input type="hidden" name="orderFulfillments[#params.orderFulfillmentIndex#].orderFulfillmentID" value="#params.orderFulfillment.getOrderFulfillmentID()#" />
-
-			<!--- If NOT In Edit Mode, just display the address --->
+				</select>
+				<cfloop from="1" to="#arrayLen($.slatwall.account().getAccountAddresses())#" index="local.addressIndex">
+					<cfset local.accountAddress = $.slatwall.account().getAccountAddresses()[local.addressIndex] />
+					<div id="accountAddress_#local.addressIndex#" class="addressBlock" style="display:none;">
+						<input type="hidden" name="orderFulfillments[#params.orderFulfillmentIndex#].accountAddresses[#local.addressIndex#].accountAddressID" value="#local.accountAddress.getAccountAddressID()#" />
+						<cf_SlatwallAddressDisplay address="#local.accountAddress.getAddress()#" fieldNamePrefix="orderFulfillments[#params.orderFulfillmentIndex#].accountAddresses[#local.addressIndex#].address." edit="#params.edit#">
+					</div>
+				</cfloop>
 			<cfelse>
-				<cf_SlatwallAddressDisplay address="#local.address#" edit="false">
+				<input type="hidden" name="orderFulfillments[#params.orderFulfillmentIndex#].accountAddress.addressIndex" value="0" />
+			</cfif>
+			<div id="shippingAddress" class="addressBlock" style="display:none;">
+				<cf_SlatwallAddressDisplay address="#local.address#" fieldNamePrefix="orderFulfillments[#params.orderFulfillmentIndex#].shippingAddress." edit="#params.edit#">
+				<span><input type="checkbox" name="orderFulfillments[#params.orderFulfillmentIndex#].saveAddress" value="1">&nbsp;Save this address</span>
+			</div>
+			<input type="hidden" name="orderFulfillments[#params.orderFulfillmentIndex#].saveAddress" value="" />
+			<input type="hidden" name="orderFulfillments[#params.orderFulfillmentIndex#].orderFulfillmentID" value="#params.orderFulfillment.getOrderFulfillmentID()#" />
+		</div>
+		<div class="shippingMethod">
+			<h4>Shipping Method</h4>
+			<cfif arrayLen(params.orderFulfillment.getShippingMethodOptions())>
+				<cf_SlatwallShippingMethodDisplay orderFulfillmentIndex="#params.orderFulfillmentIndex#" orderFulfillmentShipping="#params.orderFulfillment#" edit="#local.edit#">
+				<button type="submit">Save & Continue</button>
+			<cfelse>
+				<p>Please enter a valid Shipping Address so shipping rates can be calculated.</p>
+				<button type="submit">Get Shipping Rates</button>
 			</cfif>
 		</div>
-		
-		<cfif arrayLen(params.orderFulfillment.getShippingMethodOptions())>
-			<div class="shippingMethod">
-				<h4>Shipping Method</h4>
-				<cf_SlatwallShippingMethodDisplay orderFulfillmentIndex="#params.orderFulfillmentIndex#" orderFulfillmentShipping="#params.orderFulfillment#" edit="#local.edit#">
-			</div>
-		</cfif>
 	</div>
 	
 	<script type="text/javascript">

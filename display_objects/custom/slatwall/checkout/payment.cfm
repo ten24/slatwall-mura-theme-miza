@@ -1,6 +1,6 @@
 <!---
 
-    Slatwall - An e-commerce plugin for Mura CMS
+    Slatwall - An Open Source eCommerce Platform
     Copyright (C) 2011 ten24, LLC
 
     This program is free software: you can redistribute it and/or modify
@@ -38,117 +38,76 @@ Notes:
 --->
 <cfparam name="rc.edit" type="string" default="" />
 <cfparam name="rc.orderRequirementsList" type="string" default="" />
-<cfparam name="rc.activePaymentMethods" type="array" />
+<cfparam name="rc.eligiblePaymentMethodDetails" type="array" />
+<cfparam name="rc.activePaymentMethods" type="array" /> <!--- IMPORTANT: This value is deprecated --->
 
-<cfif arrayLen($.slatwall.cart().getOrderPayments())>
-	<cfset local.orderPayment = $.slatwall.cart().getOrderPayments()[1] />
-<cfelse>
-	<cfset local.orderPayment = $.slatwall.getService("paymentService").newOrderPaymentCreditCard() />
-</cfif>
-
-<cfif arrayLen($.slatwall.cart().getOrderPayments()) and !isNull($.slatwall.cart().getOrderPayments()[1].getBillingAddress())>
-	<cfset local.address = $.slatwall.cart().getOrderPayments()[1].getBillingAddress() />
-<cfelseif arrayLen($.slatwall.cart().getOrderFulfillments()) eq 1 and not isNull($.slatwall.cart().getOrderFulfillments()[1].getAddress())>
-	<cfset local.address = $.slatwall.cart().getOrderFulfillments()[1].getAddress() />
-<cfelse>
-	<cfset local.address = getBeanFactory().getBean("addressService").newAddress() />
-</cfif>
+<cfset local.paymentShown = false />
 
 <cfoutput>
 	<div class="svoorderpayment">
 		<cfif not listFind(rc.orderRequirementsList, 'account') and not listFind(rc.orderRequirementsList, 'fulfillment')>
-			<form name="processOrder" action="?slatAction=frontend:checkout.processOrder" method="post">
-				<div class="paymentAddress">
-					<h4>Billing Address</h4>
-					<dl class="sameAsShipping">
-						<dt>Same As Shipping</dt>
-						<dd><input type="hidden" name="orderPayments[1].billingAddress.sameAsShipping" value="" /><input type="checkbox" name="orderPayments[1].billingAddress.sameAsShipping" value="1" checked="checked" /></dd>
-					</dl>
-					<cf_SlatwallAddressDisplay address="#local.address#" fieldNamePrefix="orderPayments[1].billingAddress." edit="true">
-				</div>
-				<div class="paymentMethod">
-					<h4>Credit Card Details</h4>
-					<input type="hidden" name="orderPayments[1].paymentMethodID" value="creditCard" />
-					<input type="hidden" name="orderPayments[1].orderPaymentID" value="#local.orderPayment.getOrderPaymentID()#" />
-					<cf_SlatwallErrorDisplay object="#local.orderPayment#" errorName="processing" displayType="div" />
-					<dl>
-						<cf_SlatwallPropertyDisplay object="#local.orderPayment#" fieldName="orderPayments[1].nameOnCreditCard" property="nameOnCreditCard" edit="true" /> 
-						<cf_SlatwallPropertyDisplay object="#local.orderPayment#" fieldName="orderPayments[1].creditCardNumber" property="creditCardNumber" noValue="true" edit="true" />
-						<cf_SlatwallPropertyDisplay object="#local.orderPayment#" fieldName="orderPayments[1].securityCode" property="securityCode" noValue="true" edit="true" />
-						<dt class="spdcreditcardexperationdate">
-							<label for="experationMonth">Expires</label>
-						</dt>
-						<dd class="spdcreditcardexpirationdate">
-							<select name="orderPayments[1].expirationMonth">
-								<option value="01">01</option>
-								<option value="02">02</option>
-								<option value="03">03</option>
-								<option value="04">04</option>
-								<option value="05">05</option>
-								<option value="06">06</option>
-								<option value="07">07</option>
-								<option value="08">08</option>
-								<option value="09">09</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-							</select> / 
-							<select name="orderPayments[1].expirationYear">
-								<option value="11">2011</option>
-								<option value="12">2012</option>
-								<option value="13">2013</option>
-								<option value="14">2014</option>
-								<option value="15">2015</option>
-								<option value="16">2016</option>
-								<option value="17">2017</option>
-								<option value="18">2018</option>
-								<option value="19">2019</option>
-								<option value="20">2020</option>
-								<option value="21">2021</option>
-								<option value="22">2022</option>
-							</select>
-						</dd>
-					</dl>
-					<input type="hidden" name="orderID" value="#$.slatwall.cart().getOrderID()#" />
-					<button type="submit">Place Order</button>
-				</div>
-				<script type="text/javascript">
-					jQuery(document).ready(function(){
+			<form name="processOrder" method="post" action="?update=1">
+				<input type="hidden" name="slatAction" value="frontend:checkout.processOrder" />
+				<h3 id="checkoutPaymentTitle" class="titleBlock">Payment</h3>
+				
+				<cfset local.orderPaymentIndex = 1 />
+				
+				<!--- Existing Payments to update, or fix errors --->
+				<cfloop array="#$.slatwall.cart().getOrderPayments()#" index="local.orderPayment">
+					
+					<cfset params = structNew() />
+					<cfset params.paymentMethod = local.orderPayment.getPaymentMethod() />
+					<cfset params.orderPayment = local.orderPayment />
+					<cfset params.orderPaymentIndex = local.orderPaymentIndex />
+					
+					<cfset local.orderPaymentIndex += 1 />
+					
+					<cfif local.orderPayment.hasErrors() or (local.orderPayment.getAmountAuthorized() eq 0 and params.paymentMethod.setting("paymentMethodCheckoutTransactionType") neq "none")>
+						<cfset local.paymentShown = true />
+						<cfset params.edit = true />
+					<cfelse>
+						<cfset params.edit = false />
+					</cfif>
+					 
+					#view("frontend:checkout/payment/#local.orderPayment.getPaymentMethodType()#", params)# 
+				</cfloop>
+				
+				<!--- New payment methods to use --->
+				<cfif not local.paymentShown>
+					
+					<!--- Only 1 option for payment method --->
+					<cfif arrayLen(rc.eligiblePaymentMethodDetails) eq 1>
 						
-						jQuery('input[name="orderPayments[1].billingAddress.sameAsShipping"]').click(function(){
-							var shippingAddress = {
-								name : '#local.address.getName()#',
-								company : '#local.address.getCompany()#',
-								streetAddress :  '#local.address.getStreetAddress()#',
-								street2Address : '#local.address.getStreet2Address()#',
-								city : '#local.address.getCity()#',
-								stateCode : '#local.address.getStateCode()#',
-								postalCode : '#local.address.getPostalCode()#',
-								countryCode : '#local.address.getCountryCode()#',
-							};
-							if(jQuery(this).is(':checked')){
-								jQuery('input[name="orderPayments[1].billingAddress.name"]').val(shippingAddress['name']);
-								jQuery('input[name="orderPayments[1].billingAddress.company"]').val(shippingAddress['company']);
-								jQuery('input[name="orderPayments[1].billingAddress.streetAddress"]').val(shippingAddress['streetAddress']);
-								jQuery('input[name="orderPayments[1].billingAddress.street2Address"]').val(shippingAddress['street2Address']);
-								jQuery('input[name="orderPayments[1].billingAddress.city"]').val(shippingAddress['city']);
-								jQuery('input[name="orderPayments[1].billingAddress.postalCode"]').val(shippingAddress['postalCode']);
-								jQuery('input[name="orderPayments[1].billingAddress.stateCode"]').val(shippingAddress['stateCode']);
-								jQuery('select[name="orderPayments[1].billingAddress.stateCode"]').val(shippingAddress['stateCode']);
-								jQuery('select[name="orderPayments[1].billingAddress.countryCode"]').val(shippingAddress['countryCode']);
-							} else {
-								jQuery('input[name="orderPayments[1].billingAddress.name"]').val('');
-								jQuery('input[name="orderPayments[1].billingAddress.company"]').val('');
-								jQuery('input[name="orderPayments[1].billingAddress.streetAddress"]').val('');
-								jQuery('input[name="orderPayments[1].billingAddress.street2Address"]').val('');
-								jQuery('input[name="orderPayments[1].billingAddress.city"]').val('');
-								jQuery('input[name="orderPayments[1].billingAddress.postalCode"]').val('');
-								jQuery('input[name="orderPayments[1].billingAddress.stateCode"]').val('');
-								jQuery('select[name="orderPayments[1].billingAddress.stateCode"]').val('');
-							};
-						});
-					});
-				</script>
+						<cfset params = rc.eligiblePaymentMethodDetails[1] />
+						<cfset params.edit = true />
+						<cfset params.orderPayment = $.slatwall.getService("paymentService").newOrderPayment() />
+						<cfset params.orderPaymentIndex = local.orderPaymentIndex />
+						<cfset local.orderPaymentIndex += 1 />
+						
+						#view("frontend:checkout/payment/#rc.eligiblePaymentMethodDetails[1].paymentMethod.getPaymentMethodType()#", params)#
+						
+					<!--- More than 1 option for payment method --->
+					<cfelse>
+						<cfset local.newOrderPaymentIndex = 0 />
+						<cfloop array="#rc.eligiblePaymentMethodDetails#" index="local.paymentMethodDetails">
+							<cfset local.newOrderPaymentIndex += 1 />
+							<dl>
+								<dt><input type="radio" name="newOrderPaymentIndex" value="#local.newOrderPaymentIndex#"> #local.paymentMethodDetails.paymentMethod.getPaymentMethodName()#</dt>
+								<dd>
+									<cfset params = local.paymentMethodDetails />
+									<cfset params.edit = true />
+									<cfset params.orderPayment = $.slatwall.getService("paymentService").newOrderPayment() />
+									<cfset params.orderPaymentIndex = local.orderPaymentIndex />
+									<cfset local.orderPaymentIndex += 1 />
+									#view("frontend:checkout/payment/#local.paymentMethodDetails.paymentMethod.getPaymentMethodType()#", params)#
+								</dd>
+							</dl>
+						</cfloop>
+					</cfif>
+				</cfif>
+				
+				<input type="hidden" name="orderID" value="#$.slatwall.cart().getOrderID()#" />
+				<button type="submit">Submit</button>
 			</form>
 		</cfif>
 	</div>
