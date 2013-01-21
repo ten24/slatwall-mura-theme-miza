@@ -108,7 +108,8 @@ Notes:
 			</cfif>
 	        <!--- END: Product Options --->
 			<!--- Product Customizations --->
-			<cfloop array="#$.slatwall.product().getAttributeSets(['astProductCustomization'])#" index="local.customizationAttributeSet">
+			<cfset attributeSetCodeArray = ['astProductCustomization'] />
+			<cfloop array="#$.slatwall.product().getAttributeSets(attributeSetCodeArray)#" index="local.customizationAttributeSet">
 				<div class="productCustomizationSet #lcase(replace(local.customizationAttributeSet.getAttributeSetName(), ' ', '', 'all'))#">
 					<h4>#local.customizationAttributeSet.getAttributeSetName()#</h4>
 					<dl>
